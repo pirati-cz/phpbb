@@ -112,6 +112,7 @@ $lang = array_merge($lang, array(
 
 	'TOPIC_TOOLS'			=> 'Nástroje tématu',
 	'TOTAL_VOTES'			=> 'Celkem hlasů',
+  'TOTAL_VOTERS'			=> 'Celkem hlasujících',
 
 	'UNLOCK_TOPIC'			=> 'Odemknout téma',
 
