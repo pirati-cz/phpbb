@@ -1714,7 +1714,6 @@ function redirect($url, $return = false, $disable_cd_check = false)
 	{
 		$user->add_lang('common');
 	}
-
 	// Make sure no &amp;'s are in, this will break the redirect
 	$url = str_replace('&amp;', '&', $url);
 
@@ -1743,7 +1742,6 @@ function redirect($url, $return = false, $disable_cd_check = false)
 	{
 		// Relative uri
 		$pathinfo = pathinfo($url);
-
 		// Is the uri pointing to the current directory?
 		if ($pathinfo['dirname'] == '.')
 		{
@@ -1756,8 +1754,12 @@ function redirect($url, $return = false, $disable_cd_check = false)
 			}
 		}
 
-		$url = $phpbb_path_helper->remove_web_root_path($url);
+		if ($pathinfo['dirname'] == '..')
+		{
+			$url = str_replace('../', '', $url);
+		}
 
+		$url = $phpbb_path_helper->remove_web_root_path($url);
 		if ($user->page['page_dir'])
 		{
 			$url = $user->page['page_dir'] . '/' . $url;
@@ -1765,7 +1767,6 @@ function redirect($url, $return = false, $disable_cd_check = false)
 
 		$url = generate_board_url() . '/' . $url;
 	}
-
 	// Clean URL and check if we go outside the forum directory
 	$url = $phpbb_path_helper->clean_url($url);
 
@@ -1899,7 +1900,6 @@ function build_url($strip_vars = false)
 function meta_refresh($time, $url, $disable_cd_check = false)
 {
 	global $template, $refresh_data, $request;
-
 	$url = redirect($url, true, $disable_cd_check);
 	if ($request->is_ajax())
 	{
