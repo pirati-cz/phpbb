@@ -433,6 +433,13 @@ acp_prune_forums_prepend
 * Since: 3.1.7-RC1
 * Purpose: Add content before the forum select form label
 
+acp_prune_forums_settings_append
+===
+* Locations:
+    + adm/style/acp_prune_forums.html
+* Since: 3.2.2-RC1
+* Purpose: Add content after the prune settings
+
 acp_prune_users_find_username_append
 ===
 * Locations:
@@ -497,6 +504,13 @@ acp_styles_list_before
     + adm/style/acp_styles.html
 * Since: 3.1.7-RC1
 * Purpose: Add content before list of styles
+
+acp_users_mode_add
+===
+* Locations:
+    + adm/style/acp_users.html
+* Since: 3.2.2-RC1
+* Purpose: Add extra modes to the ACP user page
 
 acp_users_profile_before
 ===
@@ -665,6 +679,34 @@ forumlist_body_category_header_row_prepend
     + styles/prosilver/template/forumlist_body.html
 * Since: 3.1.5-RC1
 * Purpose: Add content before the header row of the category on the forum list.
+
+forumlist_body_forum_image_after
+===
+* Locations:
+    + styles/prosilver/template/forumlist_body.html
+* Since: 3.2.2-RC1
+* Purpose: Add content after the forum image on the forum list.
+
+forumlist_body_forum_image_append
+===
+* Locations:
+    + styles/prosilver/template/forumlist_body.html
+* Since: 3.2.2-RC1
+* Purpose: Add content at the start of the forum image on the forum list.
+
+forumlist_body_forum_image_before
+===
+* Locations:
+    + styles/prosilver/template/forumlist_body.html
+* Since: 3.2.2-RC1
+* Purpose: Add content before the forum image on the forum list.
+
+forumlist_body_forum_image_prepend
+===
+* Locations:
+    + styles/prosilver/template/forumlist_body.html
+* Since: 3.2.2-RC1
+* Purpose: Add content at the end of the forum image on the forum list.
 
 forumlist_body_forum_row_after
 ===
@@ -945,6 +987,27 @@ mcp_topic_options_before
     + styles/prosilver/template/mcp_topic.html
 * Since: 3.1.6-RC1
 * Purpose: Add some options (field, checkbox, ...) before the subject field when split a subject
+
+mcp_topic_postrow_attachments_after
+===
+* Locations:
+    + styles/prosilver/template/mcp_topic.html
+* Since: 3.2.2-RC1
+* Purpose: Show additional content after attachments in mcp topic review
+
+mcp_topic_postrow_attachments_before
+===
+* Locations:
+    + styles/prosilver/template/mcp_topic.html
+* Since: 3.2.2-RC1
+* Purpose: Show additional content before attachments in mcp topic review
+
+mcp_topic_postrow_post_before
+===
+* Locations:
+    + styles/prosilver/template/mcp_topic.html
+* Since: 3.2.2-RC1
+* Purpose: Show additional content after postrow begins in mcp topic review
 
 mcp_topic_postrow_post_details_after
 ===
@@ -1482,6 +1545,20 @@ overall_header_stylesheets_after
 * Since: 3.1.0-RC3
 * Purpose: Add asset calls after stylesheets within the `</head>` tag.
 Note that INCLUDECSS will not work with this event.
+
+posting_attach_body_attach_row_controls_append
+===
+* Locations:
+    + styles/prosilver/template/posting_attach_body.html
+* Since: 3.2.2-RC1
+* Purpose: Add content after attachment control elements 
+
+posting_attach_body_attach_row_controls_prepend
+===
+* Locations:
+    + styles/prosilver/template/posting_attach_body.html
+* Since: 3.2.2-RC1
+* Purpose: Add content before attachment control elements 
 
 posting_editor_add_panel_tab
 ===
@@ -2670,6 +2747,13 @@ viewtopic_topic_title_after
     + styles/prosilver/template/viewtopic_body.html
 * Since: 3.1.7-RC1
 * Purpose: Add content directly after the topic title link on the View topic screen (outside of the h2 HTML tag)
+
+viewtopic_topic_title_before
+===
+* Locations:
+    + styles/prosilver/template/viewtopic_body.html
+* Since: 3.2.2-RC1
+* Purpose: Add content directly before the topic title link on the View topic screen (outside of the h2 HTML tag)
 
 viewtopic_topic_title_append
 ===
