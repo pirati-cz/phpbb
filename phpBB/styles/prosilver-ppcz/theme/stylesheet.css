@@ -6,9 +6,17 @@
 	width: 450px;
 	height: 82px;
 }
-
+@media (max-width: 800px) {
+	#page-header .headerbar {
+		background: url(images/forum_top_cde_800.png) no-repeat 0 0px;
+	}
+	#site-description a#logo {
+		height:75px;
+	}
+}
 @media (max-width: 700px) {
 	#site-description a#logo {
 		width:auto;
+		height:65px;
 	}
 }
