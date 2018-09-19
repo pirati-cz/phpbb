@@ -106,6 +106,7 @@ INSERT INTO phpbb_config (config_name, config_value) VALUES ('email_enable', '1'
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('email_force_sender', '0');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('email_max_chunk_size', '50');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('email_package_size', '20');
+INSERT INTO phpbb_config (config_name, config_value) VALUES ('enable_accurate_pm_button', '1');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('enable_confirm', '1');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('enable_mod_rewrite', '0');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('allow_board_notifications', '1');
@@ -279,7 +280,7 @@ INSERT INTO phpbb_config (config_name, config_value) VALUES ('tpl_allow_php', '0
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('upload_icons_path', 'images/upload_icons');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('upload_path', 'files');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('use_system_cron', '0');
-INSERT INTO phpbb_config (config_name, config_value) VALUES ('version', '3.2.2');
+INSERT INTO phpbb_config (config_name, config_value) VALUES ('version', '3.2.3');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('warnings_expire_days', '90');
 INSERT INTO phpbb_config (config_name, config_value) VALUES ('warnings_gc', '14400');
 
