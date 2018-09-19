@@ -626,6 +626,7 @@ $lang = array_merge($lang, array(
 	'PREVIOUS'			=> 'Předchozí',		// Used in pagination
 	'PREVIOUS_STEP'		=> 'Předchozí',
 	'PRIVACY'			=> 'Ochrana soukromí',
+	'PRIVACY_LINK'			=> 'Ochrana soukromí',
 	'PRIVATE_MESSAGE'	=> 'Soukromá zpráva',
 	'PRIVATE_MESSAGES'	=> 'Soukromé zprávy',
 	'PRIVATE_MESSAGING'	=> 'Soukromé zprávy',
@@ -755,6 +756,7 @@ $lang = array_merge($lang, array(
 
   'TB'				=> 'TB',
 	'TERMS_USE'				=> 'Podmínky pro užívání',
+	'TERMS_LINK'				=> 'Podmínky pro užívání',
 	'TEST_CONNECTION'	=> 'Testovat připojení',
 	'THE_TEAM'				=> 'Tým',
 	'TIB'				=> 'TiB',
