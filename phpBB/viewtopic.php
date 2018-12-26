@@ -263,6 +263,20 @@ if (!$topic_data)
 
 $forum_id = (int) $topic_data['forum_id'];
 
+/**
+ * Modify the forum ID to handle the correct display of viewtopic if needed
+ *
+ * @event core.viewtopic_modify_forum_id
+ * @var string	forum_id		forum ID
+ * @var array	topic_data		array of topic's data
+ * @since 3.2.5-RC1
+ */
+$vars = array(
+	'forum_id',
+	'topic_data',
+);
+extract($phpbb_dispatcher->trigger_event('core.viewtopic_modify_forum_id', compact($vars)));
+
 // If the request is missing the f parameter, the forum id in the user session data is 0 at the moment.
 // Let's fix that now so that the user can't hide from the forum's Who Is Online list.
 $user->page['forum'] = $forum_id;
@@ -341,6 +355,12 @@ if (($topic_data['topic_type'] != POST_NORMAL) && $topic_data['topic_time_limit'
 
 // Setup look and feel
 $user->setup('viewtopic', $topic_data['forum_style']);
+
+if ($view == 'print' && !$auth->acl_get('f_print', $forum_id))
+{
+	send_status_line(403, 'Forbidden');
+	trigger_error('NO_AUTH_PRINT_TOPIC');
+}
 
 $overrides_f_read_check = false;
 $overrides_forum_password_check = false;
@@ -780,7 +800,7 @@ $template->assign_vars(array(
 
 	'U_TOPIC'				=> "{$server_path}viewtopic.$phpEx?f=$forum_id&amp;t=$topic_id",
 	'U_FORUM'				=> $server_path,
-	'U_VIEW_TOPIC' 			=> $viewtopic_url,
+	'U_VIEW_TOPIC' 			=> append_sid("{$phpbb_root_path}viewtopic.$phpEx", "f=$forum_id&amp;t=$topic_id" . (($start == 0) ? '' : "&amp;start=$start") . (strlen($u_sort_param) ? "&amp;$u_sort_param" : '')),
 	'U_CANONICAL'			=> generate_board_url() . '/' . append_sid("viewtopic.$phpEx", "t=$topic_id" . (($start) ? "&amp;start=$start" : ''), true, ''),
 	'U_VIEW_FORUM' 			=> append_sid("{$phpbb_root_path}viewforum.$phpEx", 'f=' . $forum_id),
 	'U_VIEW_OLDER_TOPIC'	=> append_sid("{$phpbb_root_path}viewtopic.$phpEx", "f=$forum_id&amp;t=$topic_id&amp;view=previous"),
@@ -1154,6 +1174,29 @@ $sql = 'SELECT p.post_id
 		" . (($join_user_sql[$sort_key]) ? 'AND u.user_id = p.poster_id': '') . "
 		$limit_posts_time
 	ORDER BY $sql_sort_order";
+
+/**
+* Event to modify the SQL query that gets post_list
+*
+* @event core.viewtopic_modify_post_list_sql
+* @var	string	sql			The SQL query to generate the post_list
+* @var	int		sql_limit	The number of posts the query fetches
+* @var	int		sql_start	The index the query starts to fetch from
+* @var	string	sort_key	Key the posts are sorted by
+* @var	string	sort_days	Display posts of previous x days
+* @var	int		forum_id	Forum ID
+* @since 3.2.4-RC1
+*/
+$vars = array(
+	'sql',
+	'sql_limit',
+	'sql_start',
+	'sort_key',
+	'sort_days',
+	'forum_id',
+);
+extract($phpbb_dispatcher->trigger_event('core.viewtopic_modify_post_list_sql', compact($vars)));
+
 $result = $db->sql_query_limit($sql, $sql_limit, $sql_start);
 
 $i = ($store_reverse) ? $sql_limit - 1 : 0;
@@ -2075,7 +2118,7 @@ for ($i = 0, $end = count($post_list); $i < $end; ++$i)
 		array(
 			'ID'		=> 'pm',
 			'NAME' 		=> $user->lang['SEND_PRIVATE_MESSAGE'],
-			'U_CONTACT'	=> $u_pm,
+			'U_CONTACT'	=> $post_row['U_PM'],
 		),
 		array(
 			'ID'		=> 'email',
@@ -2255,7 +2298,6 @@ if ($s_can_vote || $s_quick_reply)
 
 		$qr_hidden_fields = array(
 			'topic_cur_post_id'		=> (int) $topic_data['topic_last_post_id'],
-			'lastclick'				=> (int) time(),
 			'topic_id'				=> (int) $topic_data['topic_id'],
 			'forum_id'				=> (int) $forum_id,
 		);
