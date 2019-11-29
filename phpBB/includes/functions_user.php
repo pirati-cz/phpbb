@@ -1779,6 +1779,10 @@ function validate_username($username, $allowed_username = false, $allow_all_name
 		default:
 			$regex = '[\x01-\x7F]+';
 		break;
+
+		case 'USERNAME_LETTER_NUMBER_DUM'://letter, number, dot, underline, minus
+			$regex = '[A-Za-z0-9\x2E\x2D\x5F]+';
+		break;
 	}
 
 	if (!preg_match('#^' . $regex . '$#u', $username))

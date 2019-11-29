@@ -254,6 +254,7 @@ $lang = array_merge($lang, array(
 	'PASSWORD_LENGTH_EXPLAIN'	=> 'Minimální délka hesla. Maximální délka není omezena.',
 	'REG_LIMIT'								=> 'Počet pokusů o&nbsp;registraci',
 	'REG_LIMIT_EXPLAIN'				=> 'Počet pokusů o&nbsp;překonání proti-spamové ochrany před dočasným znepřístupněním registrace.',
+	'USERNAME_LETTER_NUMBER_DUM'		=> 'Alfanumerické, tečka, podtržítko a mínus',
 	'USERNAME_ALPHA_ONLY'			=> 'Pouze alfanumerické',
 	'USERNAME_ALPHA_SPACERS'	=> 'Alfanumerické a oddělovače',
 	'USERNAME_ASCII'					=> 'ASCII (bez mezinárodních znaků)',

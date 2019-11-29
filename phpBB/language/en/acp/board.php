@@ -253,6 +253,7 @@ $lang = array_merge($lang, array(
 	'PASSWORD_LENGTH_EXPLAIN'	=> 'Minimum number of characters in passwords. Note that the maximum number is not limited.',
 	'REG_LIMIT'					=> 'Registration attempts',
 	'REG_LIMIT_EXPLAIN'			=> 'Number of attempts users can make at solving the anti-spambot task before being locked out of that session.',
+    'USERNAME_LETTER_NUMBER_DUM'	=> 'Aplhanumeric, dot, underline, and minus',
 	'USERNAME_ALPHA_ONLY'		=> 'Alphanumeric only',
 	'USERNAME_ALPHA_SPACERS'	=> 'Alphanumeric and spacers',
 	'USERNAME_ASCII'			=> 'ASCII (no international unicode)',
