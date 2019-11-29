@@ -591,6 +591,7 @@ $lang = array_merge($lang, array(
 	'USERNAME_ASCII_EXPLAIN'							=> 'Uživatelské jméno musí mít %1$s až %2$s a může se skládat jen z ASCII znaků',
 	'USERNAME_LETTER_NUM_EXPLAIN'					=> 'Uživatelské jméno musí mít %1$s až %2$s a může se skládat jen z písmen a čísel',
 	'USERNAME_LETTER_NUM_SPACERS_EXPLAIN'	=> 'Uživatelské jméno musí mít %1$s až %2$s a používat písmena, čísla, mezery nebo znaky -+_[].',
+	'USERNAME_LETTER_NUMBER_DUM_EXPLAIN'	=> 'Uživatelské jméno musí mít %1$s až %2$s znaků a používat písmena, čísla nebo znaky -_.',
 	'USERNAME_CHARS_ANY_EXPLAIN'					=> 'Uživatelské jméno musí mít %1$s až %2$s.',
 	'USERNAME_TAKEN_USERNAME'							=> 'Vámi zadané uživ. jméno je již použito, prosím vyberte si jiné.',
 	'USERNAME_DISALLOWED_USERNAME'				=> 'Uživatelské jméno, které jste zadal, je zabanováno.',
