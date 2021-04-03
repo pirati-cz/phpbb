@@ -1823,7 +1823,14 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll_ary, &$data
 					'poll_start'		=> $poll_start,
 					'poll_max_options'	=> $poll_ary['poll_max_options'],
 					'poll_length'		=> $poll_length,
-					'poll_vote_change'	=> $poll_ary['poll_vote_change'])
+					'poll_vote_change'	=> $poll_ary['poll_vote_change']
+
+					/* BEGIN SHOW_RESULTS */
+
+					,'poll_show_results'	=> $poll_ary['poll_show_results']
+
+					/* END SHOW_RESULTS */
+				  )
 				);
 			}
 
@@ -1900,6 +1907,13 @@ function submit_post($mode, $subject, $username, $topic_type, &$poll_ary, &$data
 				'poll_max_options'			=> (isset($poll_ary['poll_options'])) ? $poll_ary['poll_max_options'] : 1,
 				'poll_length'				=> (isset($poll_ary['poll_options'])) ? $poll_length : 0,
 				'poll_vote_change'			=> (isset($poll_ary['poll_vote_change'])) ? $poll_ary['poll_vote_change'] : 0,
+
+				/* BEGIN SHOW_RESULTS */
+
+				'poll_show_results'			=> (isset($poll_ary['poll_show_results'])) ? $poll_ary['poll_show_results'] : 1,
+
+				/* END SHOW_RESULTS */
+
 				'topic_last_view_time'		=> $current_time,
 
 				'topic_attachment'			=> (!empty($data_ary['attachment_data'])) ? 1 : (isset($data_ary['topic_attachment']) ? $data_ary['topic_attachment'] : 0),

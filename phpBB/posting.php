@@ -986,6 +986,12 @@ if ($submit || $preview || $refresh)
 		$post_data['poll_option_text']	= $request->variable('poll_option_text', '', true);
 		$post_data['poll_max_options']	= $request->variable('poll_max_options', 1);
 		$post_data['poll_vote_change']	= ($auth->acl_get('f_votechg', $forum_id) && $auth->acl_get('f_vote', $forum_id) && isset($_POST['poll_vote_change'])) ? 1 : 0;
+
+		/* BEGIN SHOW_RESULTS */
+
+		$post_data['poll_show_results']	= isset($_POST['poll_show_results']) ? 1 : 0;
+
+		/* END SHOW_RESULTS */
 	}
 
 	// If replying/quoting and last post id has changed
@@ -1251,6 +1257,13 @@ if ($submit || $preview || $refresh)
 			'poll_start'		=> $post_data['poll_start'],
 			'poll_last_vote'	=> $post_data['poll_last_vote'],
 			'poll_vote_change'	=> $post_data['poll_vote_change'],
+
+			/* BEGIN SHOW_RESULTS */
+
+			'poll_show_results'	=> $post_data['poll_show_results'],
+
+			/* END SHOW_RESULTS */
+
 			'enable_bbcode'		=> $post_data['enable_bbcode'],
 			'enable_urls'		=> $post_data['enable_urls'],
 			'enable_smilies'	=> $post_data['enable_smilies'],
@@ -1963,6 +1976,13 @@ if (($mode == 'post' || ($mode == 'edit' && $post_id == $post_data['topic_first_
 		'L_POLL_OPTIONS_EXPLAIN'	=> $user->lang('POLL_OPTIONS_' . (($mode == 'edit') ? 'EDIT_' : '') . 'EXPLAIN', (int) $config['max_poll_options']),
 
 		'VOTE_CHANGE_CHECKED'	=> (!empty($post_data['poll_vote_change'])) ? ' checked="checked"' : '',
+
+		/* BEGIN SHOW_RESULTS */
+
+		'SHOW_RESULTS_CHECKED'	=> (!empty($post_data['poll_show_results'])) ? ' checked="checked"' : '',
+
+		/* END SHOW_RESULTS */
+
 		'POLL_TITLE'			=> (isset($post_data['poll_title'])) ? $post_data['poll_title'] : '',
 		'POLL_OPTIONS'			=> (!empty($post_data['poll_options'])) ? implode("\n", $post_data['poll_options']) : '',
 		'POLL_MAX_OPTIONS'		=> (isset($post_data['poll_max_options'])) ? (int) $post_data['poll_max_options'] : 1,
