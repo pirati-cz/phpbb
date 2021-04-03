@@ -305,19 +305,6 @@ phpbb.addAjaxCallback('vote_poll', function(res) {
 	}
 });
 
-/**
- * Show poll results when clicking View results link.
- */
-$('.poll_view_results a').click(function(e) {
-	// Do not follow the link
-	e.preventDefault();
-
-	var $poll = $(this).parents('.topic_poll');
-
-	$poll.find('.resultbar, .poll_option_percent, .poll_total_votes').show(500);
-	$poll.find('.poll_view_results').hide(500);
-});
-
 $('[data-ajax]').each(function() {
 	var $this = $(this);
 	var ajax = $this.attr('data-ajax');

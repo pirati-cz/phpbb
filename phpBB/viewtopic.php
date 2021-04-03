@@ -912,6 +912,18 @@ if (!empty($topic_data['poll_start']))
 		($auth->acl_get('f_votechg', $forum_id) && $topic_data['poll_vote_change']))) ? true : false;
 	$s_display_results = (!$s_can_vote || ($s_can_vote && count($cur_voted_id)) || $view == 'viewpoll') ? true : false;
 
+	/* BEGIN SHOW_RESULTS */
+
+	if (($topic_data['poll_start'] + $topic_data['poll_length'] > time())
+		&& ($topic_data['poll_show_results'] == 0)) {
+		$s_display_results = false;
+		$s_can_display_results = false;
+	} else {
+		$s_can_display_results = !$s_display_results;
+	}
+
+	/* END SHOW_RESULTS */
+
 	/**
 	* Event to manipulate the poll data
 	*
@@ -1033,50 +1045,8 @@ if (!empty($topic_data['poll_start']))
 			WHERE topic_id = $topic_id";
 		//, topic_last_post_time = ' . time() . " -- for bumping topics with new votes, ignore for now
 		$db->sql_query($sql);
-
 		$redirect_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", "f=$forum_id&amp;t=$topic_id" . (($start == 0) ? '' : "&amp;start=$start"));
 		$message = $user->lang['VOTE_SUBMITTED'] . '<br /><br />' . sprintf($user->lang['RETURN_TOPIC'], '<a href="' . $redirect_url . '">', '</a>');
-
-		if ($request->is_ajax())
-		{
-			// Filter out invalid options
-			$valid_user_votes = array_intersect(array_keys($vote_counts), $voted_id);
-
-			$data = array(
-				'NO_VOTES'			=> $user->lang['NO_VOTES'],
-				'success'			=> true,
-				'user_votes'		=> array_flip($valid_user_votes),
-				'vote_counts'		=> $vote_counts,
-				'total_votes'		=> array_sum($vote_counts),
-				'can_vote'			=> !count($valid_user_votes) || ($auth->acl_get('f_votechg', $forum_id) && $topic_data['poll_vote_change']),
-			);
-
-			/**
-			* Event to manipulate the poll data sent by AJAX response
-			*
-			* @event core.viewtopic_modify_poll_ajax_data
-			* @var	array	data				JSON response data
-			* @var	array	valid_user_votes	Valid user votes
-			* @var	array	vote_counts			Vote counts
-			* @var	int		forum_id			Forum ID
-			* @var	array	topic_data			Topic data
-			* @var	array	poll_info			Array with the poll information
-			* @since 3.2.4-RC1
-			*/
-			$vars = array(
-				'data',
-				'valid_user_votes',
-				'vote_counts',
-				'forum_id',
-				'topic_data',
-				'poll_info',
-			);
-			extract($phpbb_dispatcher->trigger_event('core.viewtopic_modify_poll_ajax_data', compact($vars)));
-
-			$json_response = new \phpbb\json_response();
-			$json_response->send($data);
-		}
-
 		meta_refresh(5, $redirect_url);
 		trigger_error($message);
 	}
@@ -1134,11 +1104,28 @@ if (!empty($topic_data['poll_start']))
 		'S_HAS_POLL'		=> true,
 		'S_CAN_VOTE'		=> $s_can_vote,
 		'S_DISPLAY_RESULTS'	=> $s_display_results,
+
+		/* BEGIN SHOW_RESULTS */
+
+		'S_CAN_DISPLAY_RESULTS'	=> $s_can_display_results,
+
+		/* END SHOW_RESULTS */
+
 		'S_IS_MULTI_CHOICE'	=> ($topic_data['poll_max_options'] > 1) ? true : false,
 		'S_POLL_ACTION'		=> $viewtopic_url,
 
 		'U_VIEW_RESULTS'	=> $viewtopic_url . '&amp;view=viewpoll',
 	);
+
+	/* BEGIN TOTAL_VOTERS */
+
+	$sql = 'SELECT COUNT(*) AS poll_total_voters FROM (SELECT DISTINCT vote_user_id FROM ' . POLL_VOTES_TABLE . ' WHERE topic_id = ' . (int) $topic_id . ') AS T1';
+	$result = $db->sql_query($sql);
+	while ($row = $db->sql_fetchrow($result)) $poll_total_voters = $row['poll_total_voters'];
+	$db->sql_freeresult($result);
+	$template->assign_vars(array('TOTAL_VOTERS'	=> $poll_total_voters));
+
+	/* END TOTAL_VOTERS */
 
 	/**
 	* Event to add/modify poll template data
