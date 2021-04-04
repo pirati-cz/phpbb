@@ -35,25 +35,36 @@
 	</fieldset>
 	</div>
 </div>
-
 <div class="panel">
 	<div class="inner">
-
-	<fieldset>
-	<dl>
-		<dt><label for="cur_password">{L_CURRENT_PASSWORD}{L_COLON}</label><br /><span><!-- IF S_CHANGE_PASSWORD -->{L_CURRENT_CHANGE_PASSWORD_EXPLAIN}<!-- ELSE -->{L_CURRENT_PASSWORD_EXPLAIN}<!-- ENDIF --></span></dt>
-		<dd><input type="password" name="cur_password" id="cur_password" maxlength="255" value="{CUR_PASSWORD}" class="inputbox" title="{L_CURRENT_PASSWORD}" autocomplete="off" /></dd>
-	</dl>
-	</fieldset>
-
+		<p>V rámci technologického upgradu pirátské infrastruktury je změna registračního e-mailu a hesla možná pouze na adrese <a href="https://auth.pirati.cz/auth/realms/pirati/account/">https://auth.pirati.cz/auth/realms/pirati/account/</a>. Přihlašte se uživatelským jménem a heslem z fóra.</p>
+		<p>Hesla se mezi "Pirátskou identitou" a Fórem synchronizují jednou za 10 minut.</p>
+		<p>Pro změnu či vytvoření kontaktní adresy můžete využít editaci profilu na <a href="https://nalodeni.pirati.cz">https://nalodeni.pirati.cz</a>, kam se lze přihlásit pomocí "Pirátské identity".</p>
+		<p>Pozn.: jako registrační e-mailovou adresu na Pirátské identitě není možné používat adresu ve tvaru @pirati.cz.</p>
 	</div>
 </div>
 
-<fieldset class="submit-buttons">
-	{S_HIDDEN_FIELDS}
-	<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
-	{S_FORM_TOKEN}
-</fieldset>
+<!-- IF S_CHANGE_PASSWORD or S_CHANGE_EMAIL or S_CHANGE_USERNAME -->
+	<div class="panel">
+		<div class="inner">
+
+		<fieldset>
+		<dl>
+			<dt><label for="cur_password">{L_CURRENT_PASSWORD}{L_COLON}</label><br /><span><!-- IF S_CHANGE_PASSWORD -->{L_CURRENT_CHANGE_PASSWORD_EXPLAIN}<!-- ELSE -->{L_CURRENT_PASSWORD_EXPLAIN}<!-- ENDIF --></span></dt>
+			<dd><input type="password" name="cur_password" id="cur_password" maxlength="255" value="{CUR_PASSWORD}" class="inputbox" title="{L_CURRENT_PASSWORD}" autocomplete="off" /></dd>
+		</dl>
+		</fieldset>
+
+		</div>
+	</div>
+
+	<fieldset class="submit-buttons">
+		{S_HIDDEN_FIELDS}
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+		{S_FORM_TOKEN}
+	</fieldset>
+<!-- ENDIF -->
+
 </form>
 
 <!-- INCLUDE ucp_footer.html -->
