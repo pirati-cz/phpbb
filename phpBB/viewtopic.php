@@ -1075,7 +1075,6 @@ if (!empty($topic_data['poll_start']))
 		$option_pct_txt = sprintf("%.1d%%", round($option_pct * 100));
 		$option_pct_rel = ($poll_most > 0) ? $poll_option['poll_option_total'] / $poll_most : 0;
 		$option_pct_rel_txt = sprintf("%.1d%%", round($option_pct_rel * 100));
-		$option_most_votes = ($poll_option['poll_option_total'] > 0 && $poll_option['poll_option_total'] == $poll_most) ? true : false;
 
 		$poll_options_template_data[] = array(
 			'POLL_OPTION_ID' 			=> $poll_option['poll_option_id'],
@@ -1086,7 +1085,6 @@ if (!empty($topic_data['poll_start']))
 			'POLL_OPTION_PCT'			=> round($option_pct * 100),
 			'POLL_OPTION_WIDTH'     	=> round($option_pct * 250),
 			'POLL_OPTION_VOTED'			=> (in_array($poll_option['poll_option_id'], $cur_voted_id)) ? true : false,
-			'POLL_OPTION_MOST_VOTES'	=> $option_most_votes,
 		);
 	}
 
