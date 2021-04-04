@@ -17,7 +17,6 @@
 			<dt><label for="{PASSWORD_CREDENTIAL}">{L_PASSWORD}{L_COLON}</label></dt>
 			<dd><input type="password" tabindex="2" id="{PASSWORD_CREDENTIAL}" name="{PASSWORD_CREDENTIAL}" size="25" class="inputbox autowidth" autocomplete="off" /></dd>
 			<!-- IF S_DISPLAY_FULL_LOGIN and (U_SEND_PASSWORD or U_RESEND_ACTIVATION) -->
-				<!-- IF U_SEND_PASSWORD --><dd><a href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a></dd><!-- ENDIF -->
 				<!-- IF U_RESEND_ACTIVATION --><dd><a href="{U_RESEND_ACTIVATION}">{L_RESEND_ACTIVATION}</a></dd><!-- ENDIF -->
 			<!-- ENDIF -->
 		</dl>
@@ -39,6 +38,12 @@
 			<dd>{S_HIDDEN_FIELDS}<input type="submit" name="login" tabindex="6" value="{L_LOGIN}" class="button1" /></dd>
 		</dl>
 		</fieldset>
+		<!-- IF not U_SEND_PASSWORD -->
+			<p>V rámci technologického upgradu pirátské infrastruktury lze reset zapomenutého hesla provést pouze na adrese <a href="https://auth.pirati.cz">https://auth.pirati.cz</a>. Využijte možnost "Zapomenuté heslo?", zadejte vaše uživatelské jméno z fóra nebo e-mail z fóra. Následně obdržíte e-mail s instrukcemi pro změnu hesla.</p>
+			<p>Hesla se mezi "Pirátskou identitou" a Fórem synchronizují jednou za 10 minut.</p>
+			<p>Pro změnu registračního e-mailu využijte editaci profilu na <a href="https://auth.pirati.cz/auth/realms/pirati/account/">https://auth.pirati.cz/auth/realms/pirati/account/</a>, pro změnu či vytvoření kontaktní adresy můžete využít editaci profilu na <a href="https://nalodeni.pirati.cz">https://nalodeni.pirati.cz</a>, kam se lze přihlásit pomocí "Pirátské identity".</p>
+			<p>Pozn.: jako registrační e-mailovou adresu na Pirátské identitě není možné používat adresu ve tvaru @pirati.cz.</p>
+		<!-- ENDIF -->
 	</div>
 
 	<!-- IF not S_ADMIN_AUTH and PROVIDER_TEMPLATE_FILE -->
