@@ -1,0 +1,38 @@
+#page-header .headerbar {
+	background: url(../../prosilver-ppcz/theme/images/forum_top_cde.png) no-repeat 0 0px;
+}
+#site-description a#logo {
+	display: block;
+	width: 450px;
+	height: 82px;
+}
+@media (max-width: 800px) {
+	#page-header .headerbar {
+		background: url(../../prosilver-ppcz/theme/images/forum_top_cde_800.png) no-repeat 0 0px;
+	}
+	#site-description a#logo {
+		height:75px;
+	}
+}
+@media (max-width: 700px) {
+	#site-description a#logo {
+		width:auto;
+		height:65px;
+	}
+}
+
+/* dark template inspired by Aurelienazerty's https://github.com/Aurelienazerty/darkMode (GNU GPL v2) */
+body {
+	filter: invert(1) hue-rotate(.5turn);
+	padding: 15px;
+	min-height:100%;
+}
+
+img, iframe, video {
+	filter: invert(1) hue-rotate(.5turn);
+}
+
+img:not(:hover) {
+	opacity: .7;
+	transition: opacity .25s ease-in-out;
+}
