@@ -72,7 +72,7 @@ $lang = array_merge($lang, array(
 	'FIND_USERNAME_EXPLAIN'	=> 'Použijte tento formulář pro vyhledání konkrétních uživatelů. Nemusíte vyplňovat všechna pole. Jako zástupný znak použijte *. Pro data použijte formát rrrr-mm-dd, např. 2002-01-01. Použijte zaškrtávací políčka pro vybrání jednoho nebo více uživatelů.',
 	'FLOOD_EMAIL_LIMIT'		=> 'Nemůžete odeslat další e-mail tak brzy po předchozím, zkuste to prosím znovu později.',
 
-	'GROUP_LEADER'			=> 'Moderátor skupiny',
+	'GROUP_LEADER'			=> 'Vedoucí skupiny',
 
 	'HIDE_MEMBER_SEARCH'	=> 'Skrýt hledání členů',
 
