@@ -24,6 +24,35 @@ RewriteEngine on
 # by default accessed at /app.php/my/controller, but can also be accessed at
 # /my/controller
 #
+
+RewriteBase /
+
+RewriteRule ^(.*)-f([0-9]*)/(.*)-t([0-9]*)-s([0-9]*).html viewtopic.php?f=$2&t=$4&start=$5&%{QUERY_STRING} [L]
+RewriteRule ^(.*)-f([0-9]*)/(.*)-t([0-9]*)-([0-9]*).html viewtopic.php?f=$2&t=$4&start=$5&%{QUERY_STRING} [L]
+RewriteRule ^(.*)-f([0-9]*)/(.*)-t([0-9]*).html viewtopic.php?f=$2&t=$4&%{QUERY_STRING} [L]
+RewriteRule ^(.*)-f([0-9]*)/index-s([0-9]*).html viewforum.php?f=$2&start=$3&%{QUERY_STRING} [L]
+RewriteRule ^(.*)-f([0-9]*)/ viewforum.php?f=$2&%{QUERY_STRING} [L]
+RewriteRule ^(.*)-f([0-9]*) viewforum.php?f=$2&%{QUERY_STRING} [L]
+
+# PHPBB FILES ALL MODES
+RewriteRule ^resources/[a-z0-9_-]+/(thumb/)?([0-9]+)$ /download/file.php?id=$2&t=$1 [QSA,L,NC]
+# PROFILES ALL MODES WITH ID
+RewriteRule ^(member|[a-z0-9_-]*-u)([0-9]+)/?$ /memberlist.php?mode=viewprofile&u=$2 [QSA,L,NC]
+# USER MESSAGES ALL MODES WITH ID
+RewriteRule ^(member|[a-z0-9_-]*-u)([0-9]+)/(topics|posts)/?(page([0-9]+)\.html)?$ /search.php?author_id=$2&sr=$3&start=$5 [QSA,L,NC]
+# GROUPS ALL MODES
+RewriteRule ^(group|[a-z0-9_-]*-g)([0-9]+)(-([0-9]+))?\.html$ /memberlist.php?mode=group&g=$2&start=$4 [QSA,L,NC]
+# POST
+RewriteRule ^post([0-9]+)\.html$ /viewtopic.php?p=$1 [QSA,L,NC]
+# ACTIVE TOPICS
+RewriteRule ^active-topics(-([0-9]+))?\.html$ /search.php?search_id=active_topics&start=$2&sr=topics [QSA,L,NC]
+# UNANSWERED TOPICS
+RewriteRule ^unanswered(-([0-9]+))?\.html$ /search.php?search_id=unanswered&start=$2&sr=topics [QSA,L,NC]
+# NEW POSTS
+RewriteRule ^newposts(-([0-9]+))?\.html$ /search.php?search_id=newposts&start=$2&sr=topics [QSA,L,NC]
+# UNREAD POSTS
+RewriteRule ^unreadposts(-([0-9]+))?\.html$ /search.php?search_id=unreadposts&start=$2 [QSA,L,NC]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ app.php [QSA,L]
