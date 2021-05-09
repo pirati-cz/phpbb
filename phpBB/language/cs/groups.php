@@ -1,12 +1,12 @@
 <?php
-/** 
+/**
 *
 * groups [Čeština]
 *
 * @package language
 * @version $Id: groups.php 413 2008-03-26 15:35:37Z ameeck $
 * @copyright (c)  2007 phpBB.cz
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * Original copyright: (c) 2005 phpBB Group
 *
 */
@@ -24,7 +24,7 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
-// DEVELOPERS PLEASE NOTE 
+// DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
@@ -44,8 +44,8 @@ $lang = array_merge($lang, array(
 	'CANNOT_JOIN_GROUP'         => 'Nemůzete vstoupit do této skupiny. Můžete vstoupit pouze do otevřených a volných skupin.',
 	'CANNOT_RESIGN_GROUP'      => 'Nemůzete vystoupit z této skupiny. Můžete vystoupit pouze z otevřených a volných skupin.',
 	'CHANGED_DEFAULT_GROUP'	=> 'Výchozí skupina byla změněna.',
-	
-	'GROUP_AVATAR'			=> 'Avatar skupiny', 
+
+	'GROUP_AVATAR'			=> 'Avatar skupiny',
 	'GROUP_CHANGE_DEFAULT'	=> 'Jste si jistí, že chcete změnit vaše výchozí členství na skupinu „%s“?',
 	'GROUP_CLOSED'			=> 'Zavřená',
 	'GROUP_DESC'			=> 'Popis skupiny',
@@ -54,8 +54,8 @@ $lang = array_merge($lang, array(
  	'GROUP_IS_CLOSED'		=> 'Toto je uzavřená skupina, automaticky do ní nemohou vstoupit noví uživatelé.',
 	'GROUP_IS_OPEN'			=> 'Toto je otevřená skupina, noví uživatelé mohou žádat o&nbsp;vstup do této skupiny.',
 	'GROUP_IS_HIDDEN'		=> 'Toto je skrytá skupina, jen členové mohou vidět další členy této skupiny.',
-	'GROUP_IS_FREE'			=> 'Toto je volně otevřená skupina, všichni noví uživatelé jsou vítáni.', 
-	'GROUP_IS_SPECIAL'		=> 'Toto je předdefinovaná skupina, tyto skupiny jsou spravovány administrátory fóra.',  
+	'GROUP_IS_FREE'			=> 'Toto je volně otevřená skupina, všichni noví uživatelé jsou vítáni.',
+	'GROUP_IS_SPECIAL'		=> 'Toto je předdefinovaná skupina, tyto skupiny jsou spravovány administrátory fóra.',
 	'GROUP_JOIN'			=> 'Vstoupit do skupiny',
 	'GROUP_JOIN_CONFIRM'	=> 'Opravdu chcete vstoupit do této skupiny?',
 	'GROUP_JOIN_PENDING'	=> 'Zažádat o&nbsp;vstup do skupiny',
@@ -66,7 +66,7 @@ $lang = array_merge($lang, array(
 	'GROUP_MEMBERS'			=> 'Členové skupiny',
 	'GROUP_NAME'			=> 'Název skupiny',
 	'GROUP_OPEN'			=> 'Otevřená',
-	'GROUP_RANK'			=> 'Hodnost skupiny', 
+	'GROUP_RANK'			=> 'Hodnost skupiny',
 	'GROUP_RESIGN_MEMBERSHIP'		=> 'Vystoupit ze skupiny',
 	'GROUP_RESIGN_MEMBERSHIP_CONFIRM'	=> 'Opravdu chcete vystoupit z vybrané skupiny?',
 	'GROUP_RESIGN_PENDING'			=> 'Vzít zpět žádost o&nbsp;vstup',
@@ -90,6 +90,6 @@ $lang = array_merge($lang, array(
 
 	'USER_GROUP_CHANGE'			=> 'Z skupiny „%1$s“ do „%2$s“',
 	'USER_GROUP_DEMOTE'			=> 'Odebrat moderátorství',
-	'USER_GROUP_DEMOTE_CONFIRM'	=> 'Opravdu chcete odstoupit jako moderátor skupiny?',
+	'USER_GROUP_DEMOTE_CONFIRM'	=> 'Opravdu chcete odstoupit jako vedoucí skupiny?',
 	'USER_GROUP_DEMOTED'		=> 'Vedení skupiny bylo úspěšně odebráno.',
 ));

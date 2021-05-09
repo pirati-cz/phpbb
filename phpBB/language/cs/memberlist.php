@@ -1,12 +1,12 @@
 <?php
-/** 
+/**
 *
 * memberlist [Čeština]
 *
 * @package language
 * @version $Id: memberlist.php 498 2009-11-17 20:45:14Z ameeck $
 * @copyright (c)  2007 phpBB.cz
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 * Original copyright: (c) 2005 phpBB Group
 *
 */
@@ -24,7 +24,7 @@ if (empty($lang) || !is_array($lang))
 	$lang = array();
 }
 
-// DEVELOPERS PLEASE NOTE 
+// DEVELOPERS PLEASE NOTE
 //
 // All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
@@ -72,7 +72,7 @@ $lang = array_merge($lang, array(
 	'FIND_USERNAME_EXPLAIN'	=> 'Použijte tento formulář pro vyhledání konkrétních uživatelů. Nemusíte vyplňovat všechna pole. Jako zástupný znak použijte *. Pro data použijte formát rrrr-mm-dd, např. 2002-01-01. Použijte zaškrtávací políčka pro vybrání jednoho nebo více uživatelů.',
 	'FLOOD_EMAIL_LIMIT'		=> 'Nemůžete odeslat další e-mail tak brzy po předchozím, zkuste to prosím znovu později.',
 
-	'GROUP_LEADER'			=> 'Moderátor skupiny',
+	'GROUP_LEADER'			=> 'Vedoucí skupiny',
 
 	'HIDE_MEMBER_SEARCH'	=> 'Skrýt hledání členů',
 
@@ -119,7 +119,7 @@ $lang = array_merge($lang, array(
 	'RECIPIENT'				=> 'Příjemce',
 	'REMOVE_FOE'			=> 'Odstranit nepřítele',
 	'REMOVE_FRIEND'			=> 'Odstranit přítele',
-		
+
 	'SELECT_MARKED'			=> 'Vybrat označené',
 	'SELECT_SORT_METHOD'	=> 'Vyberte způsob řazení',
 	'SENDER_EMAIL_ADDRESS'	=> 'Vaše e-mailová adresa',
@@ -136,7 +136,7 @@ $lang = array_merge($lang, array(
 	'USERNAME_BEGINS_WITH'	=> 'Uživatelské jméno začíná na',
 	'USER_ADMIN'			=> 'Spravovat uživatele',
 	'USER_BAN'            => 'Banování',
-	'USER_FORUM'			=> 'Uživatelské statistiky',	
+	'USER_FORUM'			=> 'Uživatelské statistiky',
 	'USER_LAST_REMINDED'	=> array(
 		0		=> 'Zatím nebylo odesláno žádné připomenutí',
 		1		=> 'Odesláno %1$d připomenutí<br />» %2$s',
