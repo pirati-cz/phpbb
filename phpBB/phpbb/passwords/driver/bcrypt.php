@@ -48,11 +48,7 @@ class bcrypt extends base
 	 */
 	public function needs_rehash($hash)
 	{
-		preg_match('/^' . preg_quote($this->get_prefix()) . '([0-9]+)\$/', $hash, $matches);
-
-		list(, $cost_factor) = $matches;
-
-		return empty($cost_factor) || $this->cost_factor !== intval($cost_factor);
+		return false;
 	}
 
 	/**
